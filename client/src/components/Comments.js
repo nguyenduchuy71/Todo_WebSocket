@@ -11,9 +11,7 @@ const Comments = () => {
 
   const addComment = (e) => {
     e.preventDefault();
-    /*
-    👇🏻 sends the comment, the task category, item's id and the userID.
-     */
+    /* sends the comment, the task category, item's id and the userID. */
     socket.emit("addComment", {
       comment,
       category,
@@ -23,7 +21,7 @@ const Comments = () => {
     setComment("");
   };
 
-  //👇🏻 Listens to the comments event
+  // Listens to the comments event
   useEffect(() => {
     socket.on("comments", (data) => setCommentList(data));
   }, []);
@@ -49,7 +47,7 @@ const Comments = () => {
         <button className="commentBtn">ADD COMMENT</button>
       </form>
 
-      {/** 👇🏻 Displays all the available comments*/}
+      {/** Displays all the available comments*/}
       <div className="comments__section">
         <h2>Existing Comments</h2>
         {commentList.map((comment) => (
